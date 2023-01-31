@@ -1,0 +1,63 @@
+
+ Nix-Shell Installation
+ =========================
+ 
+ Then install Nix from the url : https://nixos.org/download.html or given below.
+Copy the below link and then execute.
+
+ $ sh <(curl -L -k https://nixos.org/nix/install) --no-daemon
+
+Run the next step
+
+ $ . /home/<user-name>/.nix-profile/etc/profile.d/nix.sh  //<user-name means your computer name>
+
+We now need to add Input Outputs caches to greatly speed up the building process. Without this step, you might be running nix-shell for days rather than minutes! This can be found here: IOG Binaries. Let’s create a new config file that has the associated IOG links. Run:
+
+$ mkdir ~/.config/nix
+echo 'substituters = https://hydra.iohk.io https://iohk.cachix.org https://cache.nixos.org/' >> ~/.config/nix/nix.conf
+echo 'trusted-public-keys = hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ= iohk.cachix.org-1:DpRUyj7h7V830dp/i6Nti+NEO2/nhblbov/8MW7Rqoo= cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY=' >> ~/.config/nix/nix.conf
+
+Check Installed version of Nix
+
+$ nix-env --version
+
+Clone Plutus-apps
+
+$ git clone https://github.com/input-output-hk/plutus-apps.git
+
+Clone Plutus Pioneer program
+
+$ git clone https://github.com/input-output-hk/plutus-pioneer-program.git
+
+Navigate to the current week01 directory in the plutus-pioneer-program folder and open the cabal.project file:
+And Find the plutus apps tag
+
+$ ~/plutus-pioneer-program/code/week01
+
+$ cat cabal.project
+
+check tha tag: 
+  
+  source-repository-package
+  type: git
+  location: https://github.com/input-output-hk/plutus-apps.git
+  tag: 41149926c108c71831cfe8d244c83b0ee4bf5c8a // this one
+
+	
+Go to plutus-apps/
+
+Go to main
+
+$ git checkout main
+
+Go to pull
+
+$ git pull
+
+	git checkout 41149926c108c71831cfe8d244c83b0ee4bf5c8a
+
+
+Run Nix shell
+
+$ nix-shell
+
