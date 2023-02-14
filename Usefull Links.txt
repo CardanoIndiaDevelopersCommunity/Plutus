@@ -1,0 +1,8 @@
+Usefull Links:
+
+
+Introduction to Cardano: https://docs.cardano.org/introduction
+
+Cardano node installation: https://developers.cardano.org/docs/get-started/installing-cardano-node/#linux
+
+Plutus Play ground: https://playground.plutus.iohkdev.io/
